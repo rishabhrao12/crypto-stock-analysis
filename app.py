@@ -8,7 +8,9 @@ import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
 from sklearn.linear_model import Lasso
+import numpy as np
 import pickle
+from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
 
@@ -25,16 +27,16 @@ filename = "lasso_regression.sav"
 
 model = pickle.load(open(filename, 'rb'))
 
-fig = go.Figure(data=[go.Candlestick(x=df['Date'],
-                                     open=df['Open'],
-                                     high=df['High'],
-                                     low=df['Low'],
-                                     close=df['Close'])])
+candlestick = go.Figure(data=[go.Candlestick(x=df['Date'],
+                                             open=df['Open'],
+                                             high=df['High'],
+                                             low=df['Low'],
+                                             close=df['Close'])])
 
-fig.update_layout(title='CANDLESTICK GRAPH',title_x=0.5)
+candlestick.update_layout(title='CANDLESTICK GRAPH', title_x=0.5)
 
-fig2 = px.scatter(x=df['Open'],y=df['Close'],labels={'x':'Open','y':'Close'})
-fig2.update_layout(title='OPEN vs CLOSE',title_x=0.5)
+line_graph = px.scatter(x=df['Open'], y=df['Close'], labels={'x': 'Open', 'y': 'Close'})
+line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
 
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H1(
@@ -42,26 +44,61 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         style={
             'textAlign': 'center',
             'color': colors['text'],
-
+            'font-weight': 'bold'
         }
     ),
 
     html.Div(children='Analysing and Predicting the Stock Market', style={
         'textAlign': 'center',
-        'color': colors['text']
+        'color': colors['text'],
+        'fontSize': "18px",
+        "fontWeight": "bold"
     }),
 
     dcc.Graph(
         id='CANDLESTICK',
-        figure=fig
+        figure=candlestick
+    ),
+
+    html.Div([
+        dcc.Input(
+            id="input_value",
+            value="400",
+            type="text",
+            style={
+                "font-size": "18px"
+            }
+        )
+    ]),
+
+    html.Br(),
+    html.Br(),
+
+    html.Div(
+        id="predicted_close",
+        style={
+            "font-size": "18px"
+        }
     ),
 
     dcc.Graph(
         id='CLOSE-OPEN',
-        figure=fig2
+        figure=line_graph
     )
 
 ])
+
+
+@app.callback(
+    Output(component_id="predicted_close", component_property="children"),
+    Input(component_id="input_value", component_property="value")
+)
+def update_output_div(input_value):
+    input_value = np.array(input_value)
+    input_value = input_value.reshape(-1, 1)
+    close_price = model.predict(input_value)
+    return 'Predicted Output: {}'.format(close_price)
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -6,6 +6,8 @@ from dash import dcc
 from dash import html
 import plotly.express as px
 import pandas as pd
+from sklearn.linear_model import Lasso
+import pickle
 
 app = dash.Dash(__name__)
 
@@ -16,19 +18,24 @@ colors = {
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
-df = pd.DataFrame({
-    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-    "Amount": [4, 1, 2, 2, 4, 5],
-    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-})
+df = pd.read_csv('NFLX.csv')
 
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+filename = "lasso_regression.sav"
+model = pickle.load(open(filename, 'rb'))
 
+fig2 = px.line(df['Close'],
+               labels={
+                     "index": "Index",
+                     "value": "Close Price ($)",
+                 })
+
+'''
 fig.update_layout(
     plot_bgcolor=colors['background'],
     paper_bgcolor=colors['background'],
     font_color=colors['text']
 )
+'''
 
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H1(
@@ -46,8 +53,8 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     }),
 
     dcc.Graph(
-        id='example-graph-2',
-        figure=fig
+        id='GRAPH OF CLOSE VALUE OVER TIME USING ARIMA MODEL',
+        figure=fig2
     )
 ])
 

@@ -4,6 +4,7 @@
 import dash
 from dash import dcc
 from dash import html
+import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
 from sklearn.linear_model import Lasso
@@ -23,19 +24,11 @@ df = pd.read_csv('NFLX.csv')
 filename = "lasso_regression.sav"
 model = pickle.load(open(filename, 'rb'))
 
-fig2 = px.line(df['Close'],
-               labels={
-                     "index": "Index",
-                     "value": "Close Price ($)",
-                 })
-
-'''
-fig.update_layout(
-    plot_bgcolor=colors['background'],
-    paper_bgcolor=colors['background'],
-    font_color=colors['text']
-)
-'''
+fig = go.Figure(data=[go.Candlestick(x=df['Date'],
+                open=df['Open'],
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'])])
 
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H1(
@@ -53,9 +46,11 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     }),
 
     dcc.Graph(
-        id='GRAPH OF CLOSE VALUE OVER TIME USING ARIMA MODEL',
-        figure=fig2
+        id='CANDLESTICK',
+        figure=fig
     )
+
+
 ])
 
 if __name__ == '__main__':

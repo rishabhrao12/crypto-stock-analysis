@@ -37,6 +37,9 @@ candlestick.update_layout(title='CANDLESTICK GRAPH', title_x=0.5)
 line_graph = px.scatter(x=df['Open'], y=df['Close'], labels={'x': 'Open', 'y': 'Close'})
 line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
 
+'''arima_model = pickle.load(open("ARIMA_Model.pkl", 'rb'))
+fig = arima_model.plot_predict(1,60)'''
+
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H1(
         children='STOCK ANALYSIS',
@@ -84,13 +87,13 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             value="400",
             type="text",
             style={
-                "font-size": "18px"
+                "font-size":"18px"
             }
         ),
         html.Span(
             id="predicted_close",
             style={
-                "font-size": "20px",
+                "font-size":"20px",
                 "margin-left":"90px",
             }
         )
@@ -120,3 +123,4 @@ def update_output_div(input_value):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+    # app.config.suppress_callback_exceptions = True

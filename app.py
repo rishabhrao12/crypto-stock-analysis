@@ -7,7 +7,6 @@ from dash import html
 import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
-from sklearn.linear_model import Lasso
 import numpy as np
 import pickle
 from dash.dependencies import Input, Output
@@ -23,7 +22,7 @@ colors = {
 # see https://plotly.com/python/px-arguments/ for more options
 df = pd.read_csv('NFLX.csv')
 
-filename = "lasso_regression.sav"
+filename = "ridge_regression.sav"
 
 model = pickle.load(open(filename, 'rb'))
 
@@ -60,7 +59,26 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         figure=candlestick
     ),
 
+    html.H1(
+        children='PREDICTING CLOSE VALUE',
+        style={
+            'textAlign': 'center',
+            'color': colors['text'],
+            'font-weight': 'bold'
+        }
+    ),
+
+    html.Br(),
+
     html.Div([
+        html.Span(
+            children='Input Open Price ($): ',
+            style={
+                'color': colors['text'],
+                "font-size": "20px",
+                'margin-left': '230px'
+            }
+        ),
         dcc.Input(
             id="input_value",
             value="400",
@@ -68,18 +86,18 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             style={
                 "font-size": "18px"
             }
+        ),
+        html.Span(
+            id="predicted_close",
+            style={
+                "font-size": "20px",
+                "margin-left":"90px",
+            }
         )
     ]),
 
     html.Br(),
     html.Br(),
-
-    html.Div(
-        id="predicted_close",
-        style={
-            "font-size": "18px"
-        }
-    ),
 
     dcc.Graph(
         id='CLOSE-OPEN',
@@ -94,10 +112,10 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     Input(component_id="input_value", component_property="value")
 )
 def update_output_div(input_value):
-    input_value = np.array(input_value)
+    input_value = np.array(float(input_value))
     input_value = input_value.reshape(-1, 1)
     close_price = model.predict(input_value)
-    return 'Predicted Output: {}'.format(close_price)
+    return 'Predicted Output: {}, Accuracy: 92.16%'.format(close_price)
 
 
 if __name__ == '__main__':

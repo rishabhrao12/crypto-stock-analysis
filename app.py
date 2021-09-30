@@ -22,13 +22,19 @@ colors = {
 df = pd.read_csv('NFLX.csv')
 
 filename = "lasso_regression.sav"
+
 model = pickle.load(open(filename, 'rb'))
 
 fig = go.Figure(data=[go.Candlestick(x=df['Date'],
-                open=df['Open'],
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'])])
+                                     open=df['Open'],
+                                     high=df['High'],
+                                     low=df['Low'],
+                                     close=df['Close'])])
+
+fig.update_layout(title='CANDLESTICK GRAPH',title_x=0.5)
+
+fig2 = px.scatter(x=df['Open'],y=df['Close'],labels={'x':'Open','y':'Close'})
+fig2.update_layout(title='OPEN vs CLOSE',title_x=0.5)
 
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H1(
@@ -48,8 +54,12 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     dcc.Graph(
         id='CANDLESTICK',
         figure=fig
-    )
+    ),
 
+    dcc.Graph(
+        id='CLOSE-OPEN',
+        figure=fig2
+    )
 
 ])
 

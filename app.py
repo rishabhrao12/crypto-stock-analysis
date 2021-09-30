@@ -46,28 +46,36 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         style={
             'textAlign': 'center',
             'color': colors['text'],
-            'font-weight': 'bold'
+            'font-weight': 'bold',
+            'font-family': 'georgia'
         }
     ),
 
     html.Div(children='Analysing and Predicting the Stock Market', style={
         'textAlign': 'center',
         'color': colors['text'],
-        'fontSize': "18px",
-        "fontWeight": "bold"
+        'font-size': "20px",
+        "fontWeight": "bold",
+        'font-family': 'georgia'
     }),
+
+    html.Br(),
+    html.Hr(),
 
     dcc.Graph(
         id='CANDLESTICK',
         figure=candlestick
     ),
 
+    html.Hr(),
+
     html.H1(
         children='PREDICTING CLOSE VALUE',
         style={
             'textAlign': 'center',
             'color': colors['text'],
-            'font-weight': 'bold'
+            'font-weight': 'bold',
+            'font-family': 'georgia'
         }
     ),
 
@@ -79,7 +87,8 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             style={
                 'color': colors['text'],
                 "font-size": "20px",
-                'margin-left': '230px'
+                'margin-left': '230px',
+                'font-family': 'georgia'
             }
         ),
         dcc.Input(
@@ -87,14 +96,31 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
             value="400",
             type="text",
             style={
-                "font-size":"18px"
+                "font-size": "18px",
+                'font-family': 'georgia'
             }
         ),
         html.Span(
             id="predicted_close",
             style={
-                "font-size":"20px",
-                "margin-left":"90px",
+                "font-size": "20px",
+                "margin-left": "70px",
+                'font-family': 'georgia'
+            }
+        ),
+
+        html.Br(),
+        html.Br(),
+        html.Br(),
+        html.Br(),
+
+        html.Span(
+            children="Accuracy of Model: 92.16%",
+            id="accuracy",
+            style={
+                "font-size": "20px",
+                "margin-left": "580px",
+                'font-family': 'georgia'
             }
         )
     ]),
@@ -118,7 +144,7 @@ def update_output_div(input_value):
     input_value = np.array(float(input_value))
     input_value = input_value.reshape(-1, 1)
     close_price = model.predict(input_value)
-    return 'Predicted Output: {}, Accuracy: 92.16%'.format(close_price)
+    return 'Predicted Close Price ($): {}'.format(close_price)
 
 
 if __name__ == '__main__':

@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 import pickle
 from dash.dependencies import Input, Output
+from sklearn.linear_model import Ridge
 
 app = dash.Dash(__name__)
 

@@ -42,6 +42,7 @@ line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
 '''arima_model = pickle.load(open("ARIMA_Model.pkl", 'rb'))
 fig = arima_model.plot_predict(1,60)'''
 
+## This is the dashboard
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H1(
         children='STOCK ANALYSIS',
@@ -148,6 +149,6 @@ def update_output_div(input_value):
     close_price = model.predict(input_value)
     return 'Predicted Close Price ($): {}'.format(close_price)
 
-
+ ## to here
 if __name__ == '__main__':
     app.run_server(debug=True)

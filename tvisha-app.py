@@ -117,7 +117,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         html.Br(),
 
         html.Span(
-            children="Accuracy of Model: 92.16%",
+            children="Model Accuracy: 99.16%",
             id="accuracy",
             style={
                 "font-size": "20px",

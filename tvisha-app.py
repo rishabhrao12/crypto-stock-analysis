@@ -4,7 +4,6 @@
 # Tvisha change the html and css elements to change the design
 
 
-
 import dash
 from dash import dcc
 import plotly.graph_objects as go
@@ -22,7 +21,6 @@ colors = {
     'background': 'white',
     'text': 'black'
 }
-
 
 df = pd.read_csv('NFLX.csv')
 
@@ -44,24 +42,34 @@ line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
 '''arima_model = pickle.load(open("ARIMA_Model.pkl", 'rb'))
 fig = arima_model.plot_predict(1,60)'''
 
-
-
 app.layout = html.Div([
 
-dbc.Jumbotron(
-    [
-        html.H1("Stock Analysis", className="display-3"),
-        html.P(
-            "Using machine learning to analyse "
-            "and predict stock values",
-            className="lead",
-        ),
-        html.Hr(className="my-2"),
-        html.P(dbc.Button("Predict Now!", color="primary"), className="lead"),
-        html.H4("Currently showing Netflix(NFLX)", className="display-3", style={"font-size":"20px"}),
-    ],
-),
+    dbc.Jumbotron(
+        [
+            html.H1("Stock Analysis", className="display-3"),
+            html.P(
+                "Using machine learning to analyse "
+                "and predict stock values",
+                className="lead",
+            ),
+            html.Hr(className="my-2"),
+            html.P(dbc.Button("Predict Now!", color="primary"), className="lead"),
+            html.H4("Currently showing Netflix(NFLX)", className="display-3", style={"font-size": "20px"}),
+        ],
+    ),
     html.Hr(),
+    dcc.Dropdown(
+        id='demo-dropdown',
+        options=[
+            {'label': 'NETFLIX', 'value': 'NFLX.csv'},
+            {'label': 'AMAZON', 'value': 'AMZN.csv'},
+            {'label': 'APPLE', 'value': 'AAPL.csv'},
+            {'label': 'FACEBOOK', 'value': 'FB.csv'},
+            {'label': 'GOOGLE', 'value': 'GOOG.csv'}
+        ],
+        value='NFLX,csv'
+    ),
+    html.Div(id='dd-output-container'),
 
     dcc.Graph(
         id='CANDLESTICK',
@@ -78,14 +86,14 @@ dbc.Jumbotron(
         'background-color': '#1E90FF',
         'margin': 'auto',
         'text-indent': '0px',
-        'height':'70px',
+        'height': '70px',
 
     }),
-html.Div(style={'background-color': '#1E90FF'}, children=[
-       html.Span(
+    html.Div(style={'background-color': '#1E90FF'}, children=[
+        html.Span(
             children='Input Open Price ($): ',
             style={
-                'margin-left':'150px',
+                'margin-left': '150px',
                 'color': 'white',
                 "font-size": "20px",
                 'font-family': 'Trebuchet MS',
@@ -104,14 +112,12 @@ html.Div(style={'background-color': '#1E90FF'}, children=[
         html.Span(
             id="predicted_close",
             style={
-                "margin-left":'180px',
+                "margin-left": '180px',
                 "font-size": "20px",
                 'font-family': "Trebuchet MS",
                 'color': 'white',
             },
         ),
-
-
 
         #
         # html.Br(),
@@ -126,16 +132,16 @@ html.Div(style={'background-color': '#1E90FF'}, children=[
                 "font-size": "20px",
                 'font-family': 'Trebuchet MS',
                 'color': 'white',
-                'margin-left':'520px',
+                'margin-left': '520px',
 
             },
         ),
-     html.Div(
-    [
-        dbc.Progress(value=99, color="warning", className="mb-3", style={"width":"2000px"}),
+        html.Div(
+            [
+                dbc.Progress(value=99, color="warning", className="mb-3", style={"width": "2000px"}),
 
-    ]
-)
+            ]
+        )
     ]),
 
     html.Br(),
@@ -145,71 +151,71 @@ html.Div(style={'background-color': '#1E90FF'}, children=[
         id='CLOSE-OPEN',
         figure=line_graph,
     ),
-html.Hr(style={"color":"blue", "size":"10px"}),
-dbc.CardDeck(
-    [
-        dbc.Card(
-            dbc.CardBody(
-                [
-                    html.H5("Amazon", className="card-title"),
-                    html.P(
-                        "To check stocks from over 5 years and predict to make better investments  ",
+    html.Hr(style={"color": "blue", "size": "10px"}),
+    dbc.CardDeck(
+        [
+            dbc.Card(
+                dbc.CardBody(
+                    [
+                        html.H5("Amazon", className="card-title"),
+                        html.P(
+                            "To check stocks from over 5 years and predict to make better investments  ",
 
-                        className="card-text",
-                    ),
-                    dbc.Button(
-                        "Click here", color="primary", className="mt-auto"
-                    ),
-                ]
-            )
-        ),
-        dbc.Card(
-            dbc.CardBody(
-                [
-                    html.H5("Apple", className="card-title"),
-                    html.P(
-                        "To check stocks from over 5 years and predict to make better investments ",
-                        className="card-text",
-                    ),
-                    dbc.Button(
-                        "Click here", color="primary", className="mt-auto"
-                    ),
-                ]
-            )
-        ),
-        dbc.Card(
-            dbc.CardBody(
-                [
-                    html.H5("Facebook", className="card-title"),
-                    html.P(
-                        "To check stocks from over 5 years and predict to make better investments ",
+                            className="card-text",
+                        ),
+                        dbc.Button(
+                            "Click here", color="primary", className="mt-auto"
+                        ),
+                    ]
+                )
+            ),
+            dbc.Card(
+                dbc.CardBody(
+                    [
+                        html.H5("Apple", className="card-title"),
+                        html.P(
+                            "To check stocks from over 5 years and predict to make better investments ",
+                            className="card-text",
+                        ),
+                        dbc.Button(
+                            "Click here", color="primary", className="mt-auto"
+                        ),
+                    ]
+                )
+            ),
+            dbc.Card(
+                dbc.CardBody(
+                    [
+                        html.H5("Facebook", className="card-title"),
+                        html.P(
+                            "To check stocks from over 5 years and predict to make better investments ",
 
-                        className="card-text",
-                    ),
-                    dbc.Button(
-                        "Click here", color="primary", className="mt-auto"
-                    ),
-                ]
-            )
-        ),
-          dbc.Card(
-            dbc.CardBody(
-                [
+                            className="card-text",
+                        ),
+                        dbc.Button(
+                            "Click here", color="primary", className="mt-auto"
+                        ),
+                    ]
+                )
+            ),
+            dbc.Card(
+                dbc.CardBody(
+                    [
 
-                    html.H5("Google", className="card-title"),
-                    html.P(
-                        "To check stocks from over 5 years and predict to make better investments ",
+                        html.H5("Google", className="card-title"),
+                        html.P(
+                            "To check stocks from over 5 years and predict to make better investments ",
 
-                        className="card-text",
-                    ),
-                    dbc.Button(
-                        "Click here", color="primary", className="mt-auto"
-                    ),
-                ]
-            )
-        ),
-    ]
-)
+                            className="card-text",
+                        ),
+                        dbc.Button(
+                            "Click here", color="primary", className="mt-auto"
+                        ),
+                    ]
+                )
+            ),
+        ]
+    )
 
 ])
 
@@ -219,13 +225,21 @@ dbc.CardDeck(
     Input(component_id="input_value", component_property="value")
 
 )
-
-
 def update_output_div(input_value):
     input_value = np.array(float(input_value))
     input_value = input_value.reshape(-1, 1)
     close_price = model.predict(input_value)
     return 'Predicted Close Price ($): {}'.format(close_price)
+
+
+@app.callback(
+    Output('dd-output-container', 'children'),
+    Input('demo-dropdown', 'value')
+)
+def update_output(value):
+    # df = pd.read_csv(value)
+    return 'You have selected "{}"'.format(value)
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)

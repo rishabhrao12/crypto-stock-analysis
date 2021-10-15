@@ -24,8 +24,6 @@ colors = {
 }
 
 
-# assume you have a "long-form" data frame
-# see https://plotly.com/python/px-arguments/ for more options
 df = pd.read_csv('NFLX.csv')
 
 filename = "ridge_regression.sav"
@@ -46,17 +44,6 @@ line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
 '''arima_model = pickle.load(open("ARIMA_Model.pkl", 'rb'))
 fig = arima_model.plot_predict(1,60)'''
 
-## This is the dashboard
-'''app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
-    html.H1(
-        children='STOCK ANALYSIS',
-        style={
-            'textAlign': 'center',
-            'color': colors['text'],
-            'font-weight': 'bold',
-            'font-family': 'georgia'
-        }
-    ),'''
 
 
 app.layout = html.Div([
@@ -74,28 +61,6 @@ dbc.Jumbotron(
         html.H4("Currently showing Netflix(NFLX)", className="display-3", style={"font-size":"20px"}),
     ],
 ),
-#      html.Div(
-#     [
-#         dbc.Button("Primary", color="primary", className="mr-1"),
-#         dbc.Button("Primary", color="primary", className="mr-1"),
-#         dbc.Button("Primary", color="primary", className="mr-1"),
-#         dbc.Button("Primary", color="primary", className="mr-1"),
-#         dbc.Button("Primary", color="primary", className="mr-1"),
-#
-#     ],
-# ),
-
-    # html.Div(children='Analysing and predicting stock ', style={
-    #     'textAlign': 'left',
-    #     'color': 'white',
-    #     'font-size': "16px",
-    #     'font-family': 'Trebuchet MS',
-    #     'background-color':'#1E90FF',
-    #     'margin':'auto',
-    #     'text-indent':'50px',
-    # }),
-
-
     html.Hr(),
 
     dcc.Graph(

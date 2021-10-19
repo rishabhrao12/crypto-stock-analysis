@@ -80,21 +80,21 @@ app.layout = html.Div([
 
     html.Div(children='Predicting Close Value ', style={
         'textAlign': 'center',
-        'color': 'white',
+        'color': 'black',
         'font-size': "24px",
         'font-family': 'Trebuchet MS',
-        'background-color': '#1E90FF',
+        'background-color': '#F5F5F5',
         'margin': 'auto',
         'text-indent': '0px',
         'height': '70px',
 
     }),
-    html.Div(style={'background-color': '#1E90FF'}, children=[
+    html.Div(style={'background-color': '#F5F5F5'}, children=[
         html.Span(
             children='Input Open Price ($): ',
             style={
                 'margin-left': '150px',
-                'color': 'white',
+                'color': 'black',
                 "font-size": "20px",
                 'font-family': 'Trebuchet MS',
 
@@ -115,7 +115,7 @@ app.layout = html.Div([
                 "margin-left": '180px',
                 "font-size": "20px",
                 'font-family': "Trebuchet MS",
-                'color': 'white',
+                'color': 'black',
             },
         ),
 
@@ -131,14 +131,14 @@ app.layout = html.Div([
             style={
                 "font-size": "20px",
                 'font-family': 'Trebuchet MS',
-                'color': 'white',
+                'color': 'black',
                 'margin-left': '520px',
 
             },
         ),
         html.Div(
             [
-                dbc.Progress(value=99, color="warning", className="mb-3", style={"width": "2000px"}),
+                dbc.Progress(value=90, color="black", className="mb-3", style={"width": "2000px"}),
 
             ]
         )

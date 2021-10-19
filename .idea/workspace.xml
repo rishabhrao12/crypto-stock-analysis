@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="updated files" />
+    <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="updated files">
+      <change afterPath="$PROJECT_DIR$/lasso_regression_aapl.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/linear_regression_aapl.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/random_forest_aapl.pickle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ridge_regression_aapl.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Different-Models-Stocks-Close-from-Open.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Different-Models-Stocks-Close-from-Open.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,12 +40,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1yxlfx2M6eHUyy4AJHh800SnTUr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -111,6 +122,7 @@
       <workItem from="1634299546221" duration="3531000" />
       <workItem from="1634387930592" duration="464000" />
       <workItem from="1634650044453" duration="3244000" />
+      <workItem from="1634655475903" duration="5539000" />
     </task>
     <task id="LOCAL-00001" summary="updated files">
       <created>1634653377045</created>
@@ -142,13 +154,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="updated files" />
     <option name="LAST_COMMIT_MESSAGE" value="updated files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/crypto_stock_analysis$app.coverage" NAME="app Coverage Results" MODIFIED="1634653915278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crypto_stock_analysis$app.coverage" NAME="app Coverage Results" MODIFIED="1634666654584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/crypto_stock_analysis$tvisha_app.coverage" NAME="tvisha-app Coverage Results" MODIFIED="1634651327862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

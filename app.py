@@ -18,6 +18,9 @@ colors = {
     'text': 'black'
 }
 
+filen_name = {'NFLX.csv': 'Netflix', 'AMZN.csv': "Amazon", 'FB.csv': 'Facebook', 'AAPL.csv': 'Apple',
+              'GOOG.csv': 'Google'}
+
 filename = "linear_regression_aapl.pickle"
 
 model = pickle.load(open(filename, 'rb'))
@@ -38,9 +41,25 @@ line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
 df_comp1 = pd.read_csv('NFLX.csv')
 df_comp2 = pd.read_csv('FB.csv')
 
-figco = px.line(df_comp1, x=df_comp1['Date'], y=df_comp1['Close'])
-figco.add_scatter(x=df_comp2['Date'], y=df_comp2['Close'], mode='lines')
-figco.update_layout(title="Comparing Company Stocks", title_x=0.5)
+figco = go.Figure([
+    go.Scatter(
+        name='Netflix',
+        x=df_comp1['Date'],
+        y=df_comp1['Close'],
+        mode='lines',
+        marker=dict(color='red', size=2),
+        showlegend=True
+    ),
+    go.Scatter(
+        name='Facebook',
+        x=df_comp2['Date'],
+        y=df_comp2['Close'],
+        mode='lines',
+        marker=dict(color='blue', size=2),
+        showlegend=True
+    )
+])
+figco.update_layout(title='Comparing Companies', title_x=0.5)
 
 '''arima_model = pickle.load(open("ARIMA_Model.pkl", 'rb'))
 fig = arima_model.plot_predict(1,60)'''
@@ -68,7 +87,7 @@ app.layout = html.Div([
             {'label': 'AMAZON', 'value': 'AMZN.csv'},
             {'label': 'APPLE', 'value': 'AAPL.csv'},
             {'label': 'FACEBOOK', 'value': 'FB.csv'},
-            {'label': 'GOOGLE', 'value': 'GOOG-2.csv'}
+            {'label': 'GOOGLE', 'value': 'GOOG.csv'}
         ],
         value='NFLX.csv',
         style={
@@ -235,7 +254,7 @@ app.layout = html.Div([
                         ),
                         dbc.Button(
                             "View Graph", color="primary", className="mt-auto", id="GOOG-button", n_clicks=0,
-                            name="GOOG-2.csv"
+                            name="GOOG.csv"
                         ),
                     ]
                 )
@@ -271,7 +290,7 @@ app.layout = html.Div([
                 {'label': 'AMAZON', 'value': 'AMZN.csv'},
                 {'label': 'APPLE', 'value': 'AAPL.csv'},
                 {'label': 'FACEBOOK', 'value': 'FB.csv'},
-                {'label': 'GOOGLE', 'value': 'GOOG-2.csv'}
+                {'label': 'GOOGLE', 'value': 'GOOG.csv'}
             ],
             value='NFLX.csv',
             style={
@@ -285,7 +304,7 @@ app.layout = html.Div([
                 {'label': 'NETFLIX', 'value': 'NFLX.csv'},
                 {'label': 'APPLE', 'value': 'AAPL.csv'},
                 {'label': 'FACEBOOK', 'value': 'FB.csv'},
-                {'label': 'GOOGLE', 'value': 'GOOG-2.csv'}
+                {'label': 'GOOGLE', 'value': 'GOOG.csv'}
             ],
             value='FB.csv',
             style={
@@ -337,7 +356,7 @@ def update_output(btn1, btn2, btn3, btn4, btn5):
     elif 'FB-button' in changed_id:
         msg = 'FB.csv'
     elif 'GOOG-button' in changed_id:
-        msg = 'GOOG-2.csv'
+        msg = 'GOOG.csv'
     elif 'NF-button' in changed_id:
         msg = 'NFLX.csv'
     else:
@@ -378,6 +397,40 @@ def update_output(value, date):
         figure=candlestick
     ))
 
+# Changing compare
+@app.callback(
+    Output(component_id='compare-container', component_property='children'),
+    Input('company1comp', 'value'),
+    Input('company2comp', 'value')
+)
+def update_output(co1, co2):
+    comp1 = filen_name[co1]
+    comp2 = filen_name[co2]
+    df_comp1 = pd.read_csv(co1)
+    df_comp2 = pd.read_csv(co2)
+    figco = go.Figure([
+        go.Scatter(
+            name=comp1,
+            x=df_comp1['Date'],
+            y=df_comp1['Close'],
+            mode='lines',
+            marker=dict(color='red', size=2),
+            showlegend=True
+        ),
+        go.Scatter(
+            name=comp2,
+            x=df_comp2['Date'],
+            y=df_comp2['Close'],
+            mode='lines',
+            marker=dict(color='blue', size=2),
+            showlegend=True
+        )
+    ])
+    figco.update_layout(title='Comparing Companies', title_x=0.5)
+    return html.Div(dcc.Graph(
+        id='compare-graph',
+        figure=figco
+    ))
 
 if __name__ == '__main__':
     app.run_server(debug=True)

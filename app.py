@@ -143,13 +143,13 @@ app.layout = html.Div([
             'color': 'black',
             'font-size': "24px",
             'font-family': 'Trebuchet MS',
-            'background-color': '#f2f2f2',
+            'background-color': '#EAECF0',
             'margin': 'auto',
             'text-indent': '0px',
             'height': '70px',
 
         }),
-    html.Div(style={'background-color': '#f2f2f2'}, children=[
+    html.Div(style={'background-color': '#EAECF0'}, children=[
         html.Span(
             children='Input Open Price ($): ',
             style={
@@ -302,46 +302,79 @@ app.layout = html.Div([
 
     html.Br(),
     html.Br(),
+    html.Div(children=[
+        html.Div(
+            [
+                dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
 
-    html.Div(
-        dcc.Dropdown(
-            id='company1comp',
-            options=[
-                {'label': 'NETFLIX', 'value': 'NFLX.csv'},
-                {'label': 'AMAZON', 'value': 'AMZN.csv'},
-                {'label': 'APPLE', 'value': 'AAPL.csv'},
-                {'label': 'FACEBOOK', 'value': 'FB.csv'},
-                {'label': 'GOOGLE', 'value': 'GOOG.csv'}
-            ],
-            value='NFLX.csv',
+            ]
+        ),
+        'Comparing Stocks',
+    ],
+        style={
+            'textAlign': 'center',
+            'color': 'black',
+            'font-size': "24px",
+            'font-family': 'Trebuchet MS',
+            'background-color': '#EAECF0',
+            'margin': 'auto',
+            'text-indent': '0px',
+            'height': '70px',
+
+        }),
+    html.Div(children=[
+        html.Div(
+            dcc.Dropdown(
+                id='company1comp',
+                options=[
+                    {'label': 'NETFLIX', 'value': 'NFLX.csv'},
+                    {'label': 'AMAZON', 'value': 'AMZN.csv'},
+                    {'label': 'APPLE', 'value': 'AAPL.csv'},
+                    {'label': 'FACEBOOK', 'value': 'FB.csv'},
+                    {'label': 'GOOGLE', 'value': 'GOOG.csv'}
+                ],
+                value='NFLX.csv',
+                style={
+                    'width': '515px',
+                }
+            ),
             style={
-                'width': '515px'
+                'display': 'inline-block',
+                'margin-left': '86px',
             }
         ),
-        style={
-            'display': 'inline-block',
-            'margin-left': '86px'
-        }
-    ),
-
-    html.Div(
-        dcc.Dropdown(
-            id='company2comp',
-            options=[
-                {'label': 'AMAZON', 'value': 'AMZN.csv'},
-                {'label': 'NETFLIX', 'value': 'NFLX.csv'},
-                {'label': 'APPLE', 'value': 'AAPL.csv'},
-                {'label': 'FACEBOOK', 'value': 'FB.csv'},
-                {'label': 'GOOGLE', 'value': 'GOOG.csv'}
-            ],
-            value='FB.csv',
+        html.Div(
+            dcc.Dropdown(
+                id='company2comp',
+                options=[
+                    {'label': 'AMAZON', 'value': 'AMZN.csv'},
+                    {'label': 'NETFLIX', 'value': 'NFLX.csv'},
+                    {'label': 'APPLE', 'value': 'AAPL.csv'},
+                    {'label': 'FACEBOOK', 'value': 'FB.csv'},
+                    {'label': 'GOOGLE', 'value': 'GOOG.csv'}
+                ],
+                value='FB.csv',
+                style={
+                    'width': '515px'
+                }
+            ),
             style={
-                'width': '515px'
+                'display': 'inline-block',
+                'margin-left': '188px',
             }
         ),
+        html.Br(),
+        html.Br(),
+
+        html.Div(
+            [
+                dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
+
+            ]
+        )
+    ],
         style={
-            'display': 'inline-block',
-            'margin-left': '188px'
+            'background-color': '#EAECF0'
         }
     ),
     html.Div(
@@ -353,6 +386,12 @@ app.layout = html.Div([
             ),
         )
     ),
+    html.Footer(
+        style={
+            'height': '250px',
+            'background-color': '#EAECF0'
+        }
+    )
 
 ])
 

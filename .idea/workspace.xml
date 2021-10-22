@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="updated files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AAPL.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AAPL.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AMZN.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AMZN.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FB.csv" beforeDir="false" afterPath="$PROJECT_DIR$/FB.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOG.csv" beforeDir="false" afterPath="$PROJECT_DIR$/GOOG.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NFLX.csv" beforeDir="false" afterPath="$PROJECT_DIR$/NFLX.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="committed files">
+      <change beforePath="$PROJECT_DIR$/tvisha-app.py" beforeDir="false" afterPath="$PROJECT_DIR$/tvisha-app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +127,7 @@
       <workItem from="1634650044453" duration="3244000" />
       <workItem from="1634655475903" duration="6206000" />
       <workItem from="1634824656147" duration="690000" />
-      <workItem from="1634879515420" duration="1144000" />
+      <workItem from="1634879515420" duration="1205000" />
     </task>
     <task id="LOCAL-00001" summary="updated files">
       <created>1634653377045</created>
@@ -149,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634653949937</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="committed files">
+      <created>1634880693257</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634880693257</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +171,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="updated files" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated files" />
+    <MESSAGE value="committed files" />
+    <option name="LAST_COMMIT_MESSAGE" value="committed files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/crypto_stock_analysis$app.coverage" NAME="app Coverage Results" MODIFIED="1634880134957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

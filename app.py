@@ -64,6 +64,16 @@ app.layout = html.Div([
         ],
         value='NFLX.csv'
     ),
+    dcc.Dropdown(
+        id='date',
+        options=[
+            {'label': '6mo', 'value': '25'},
+            {'label': '1y', 'value': '50'},
+            {'label': '2y', 'value': '300'},
+            {'label': '5y', 'value': 'default'}
+        ],
+        value='NFLX.csv'
+    ),
     html.Div(
         id='dd-output-container',
         children=html.Div(dcc.Graph(

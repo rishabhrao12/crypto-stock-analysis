@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="updated files" />
+    <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="updated files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +32,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yxlfx2M6eHUyy4AJHh800SnTUr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -115,6 +120,7 @@
       <workItem from="1634387930592" duration="464000" />
       <workItem from="1634650044453" duration="3244000" />
       <workItem from="1634655475903" duration="6206000" />
+      <workItem from="1634824656147" duration="690000" />
     </task>
     <task id="LOCAL-00001" summary="updated files">
       <created>1634653377045</created>

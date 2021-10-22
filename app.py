@@ -80,31 +80,44 @@ app.layout = html.Div([
         ],
     ),
     html.Hr(),
-    dcc.Dropdown(
-        id='demo-dropdown',
-        options=[
-            {'label': 'NETFLIX', 'value': 'NFLX.csv'},
-            {'label': 'AMAZON', 'value': 'AMZN.csv'},
-            {'label': 'APPLE', 'value': 'AAPL.csv'},
-            {'label': 'FACEBOOK', 'value': 'FB.csv'},
-            {'label': 'GOOGLE', 'value': 'GOOG.csv'}
-        ],
-        value='NFLX.csv',
+    html.Div(
+        dcc.Dropdown(
+            id='demo-dropdown',
+            options=[
+                {'label': 'NETFLIX', 'value': 'NFLX.csv'},
+                {'label': 'AMAZON', 'value': 'AMZN.csv'},
+                {'label': 'APPLE', 'value': 'AAPL.csv'},
+                {'label': 'FACEBOOK', 'value': 'FB.csv'},
+                {'label': 'GOOGLE', 'value': 'GOOG.csv'}
+            ],
+            value='NFLX.csv',
+            style={
+                'width': "750px",
+                'margin-right': '215px',
+                'margin-left': '40px'
+            }
+        ),
         style={
-            'width': "600px"
+            'display': 'inline-block'
         }
     ),
-    dcc.Dropdown(
-        id='date',
-        options=[
-            {'label': '1mo', 'value': '25'},
-            {'label': '6mo', 'value': '50'},
-            {'label': '1y', 'value': '300'},
-            {'label': '5y', 'value': 'default'}
-        ],
-        value='default',
+    html.Div(
+        dcc.Dropdown(
+            id='date',
+            options=[
+                {'label': '1mo', 'value': '25'},
+                {'label': '6mo', 'value': '50'},
+                {'label': '1y', 'value': '300'},
+                {'label': '5y', 'value': 'default'}
+            ],
+            value='default',
+            style={
+                'width': "350px",
+                'margin-left': 'auto'
+            }
+        ),
         style={
-            'width': "200px"
+            'display': 'inline-block'
         }
     ),
     html.Div(
@@ -116,23 +129,31 @@ app.layout = html.Div([
     ),
 
     # html.Hr(),
+    html.Div(children=[
+        html.Div(
+            [
+                dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
 
-    html.Div(children='Predicting Close Value ', style={
-        'textAlign': 'center',
-        'color': 'black',
-        'font-size': "24px",
-        'font-family': 'Trebuchet MS',
-        'background-color': '#F5F5F5',
-        'margin': 'auto',
-        'text-indent': '0px',
-        'height': '70px',
+            ]
+        ),
+        'Predicting Close Value ',
+    ],
+        style={
+            'textAlign': 'center',
+            'color': 'black',
+            'font-size': "24px",
+            'font-family': 'Trebuchet MS',
+            'background-color': '#f2f2f2',
+            'margin': 'auto',
+            'text-indent': '0px',
+            'height': '70px',
 
-    }),
-    html.Div(style={'background-color': '#F5F5F5'}, children=[
+        }),
+    html.Div(style={'background-color': '#f2f2f2'}, children=[
         html.Span(
             children='Input Open Price ($): ',
             style={
-                'margin-left': '150px',
+                'margin-left': '180px',
                 'color': 'black',
                 "font-size": "20px",
                 'font-family': 'Trebuchet MS',
@@ -151,7 +172,7 @@ app.layout = html.Div([
         html.Span(
             id="predicted_close",
             style={
-                "margin-left": '180px',
+                "margin-left": '288px',
                 "font-size": "20px",
                 'font-family': "Trebuchet MS",
                 'color': 'black',
@@ -172,12 +193,12 @@ app.layout = html.Div([
                 "font-size": "20px",
                 'font-family': 'Trebuchet MS',
                 'color': 'black',
-                'margin-left': '520px',
+                'margin-left': '618px',
             },
         ),
         html.Div(
             [
-                dbc.Progress(value=99.16, color="black", className="mb-3", style={"width": "1248px"}),
+                dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
 
             ]
         )
@@ -282,7 +303,7 @@ app.layout = html.Div([
     html.Br(),
     html.Br(),
 
-    html.Div([
+    html.Div(
         dcc.Dropdown(
             id='company1comp',
             options=[
@@ -294,9 +315,16 @@ app.layout = html.Div([
             ],
             value='NFLX.csv',
             style={
-                'width': '500px'
+                'width': '515px'
             }
         ),
+        style={
+            'display': 'inline-block',
+            'margin-left': '86px'
+        }
+    ),
+
+    html.Div(
         dcc.Dropdown(
             id='company2comp',
             options=[
@@ -308,10 +336,14 @@ app.layout = html.Div([
             ],
             value='FB.csv',
             style={
-                'width': '500px'
+                'width': '515px'
             }
-        )
-    ]),
+        ),
+        style={
+            'display': 'inline-block',
+            'margin-left': '188px'
+        }
+    ),
     html.Div(
         id='compare-container',
         children=html.Div(

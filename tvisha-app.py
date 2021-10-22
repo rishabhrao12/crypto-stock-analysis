@@ -53,26 +53,39 @@ app.layout = html.Div([
         ],
     ),
     html.Hr(),
-    dcc.Dropdown(
-        id='demo-dropdown',
-        options=[
-            {'label': 'NETFLIX', 'value': 'NFLX.csv'},
-            {'label': 'AMAZON', 'value': 'AMZN.csv'},
-            {'label': 'APPLE', 'value': 'AAPL.csv'},
-            {'label': 'FACEBOOK', 'value': 'FB.csv'},
-            {'label': 'GOOGLE', 'value': 'GOOG-2.csv'}
-        ],
-        value='NFLX.csv'
-    ),
-    dcc.Dropdown(
-        id='date',
-        options=[
-            {'label': '1mo', 'value': '25'},
-            {'label': '6mo', 'value': '50'},
-            {'label': '1y', 'value': '300'},
-            {'label': '5y', 'value': 'default'}
-        ],
-        value='default'
+    html.Div(
+        dcc.Dropdown(
+            id='demo-dropdown',
+            options=[
+                {'label': 'NETFLIX', 'value': 'NFLX.csv'},
+                {'label': 'AMAZON', 'value': 'AMZN.csv'},
+                {'label': 'APPLE', 'value': 'AAPL.csv'},
+                {'label': 'FACEBOOK', 'value': 'FB.csv'},
+                {'label': 'GOOGLE', 'value': 'GOOG-2.csv'}
+            ],
+            value='NFLX.csv',
+            style={
+                'width': "600px"
+            }
+        ),
+        style={'float': '500px'}),
+    html.Div(
+        dcc.Dropdown(
+            id='date',
+            options=[
+                {'label': '1mo', 'value': '25'},
+                {'label': '6mo', 'value': '50'},
+                {'label': '1y', 'value': '300'},
+                {'label': '5y', 'value': 'default'}
+            ],
+            value='default',
+            style={
+                'width': "200px"
+            }
+        ),
+        style={
+            'float': '1000px'
+        }
     ),
     html.Div(
         id='dd-output-container',
@@ -172,7 +185,8 @@ app.layout = html.Div([
                             className="card-text",
                         ),
                         dbc.Button(
-                            "View Graph", color="primary", className="mt-auto", id="AM-button", n_clicks=0, name="AMZN.csv"
+                            "View Graph", color="primary", className="mt-auto", id="AM-button", n_clicks=0,
+                            name="AMZN.csv"
                         ),
                     ]
                 )
@@ -186,7 +200,8 @@ app.layout = html.Div([
                             className="card-text",
                         ),
                         dbc.Button(
-                            "View Graph", color="primary", className="mt-auto", id="AP-button", n_clicks=0, name="AAPL.csv"
+                            "View Graph", color="primary", className="mt-auto", id="AP-button", n_clicks=0,
+                            name="AAPL.csv"
                         ),
                     ]
                 )
@@ -201,7 +216,8 @@ app.layout = html.Div([
                             className="card-text",
                         ),
                         dbc.Button(
-                            "View Graph", color="primary", className="mt-auto", id="FB-button", n_clicks=0, name="FB.csv"
+                            "View Graph", color="primary", className="mt-auto", id="FB-button", n_clicks=0,
+                            name="FB.csv"
                         ),
                     ]
                 )
@@ -217,7 +233,8 @@ app.layout = html.Div([
                             className="card-text",
                         ),
                         dbc.Button(
-                            "View Graph", color="primary", className="mt-auto", id="GOOG-button", n_clicks=0, name="GOOG-2.csv"
+                            "View Graph", color="primary", className="mt-auto", id="GOOG-button", n_clicks=0,
+                            name="GOOG-2.csv"
                         ),
                     ]
                 )
@@ -233,7 +250,8 @@ app.layout = html.Div([
                             className="card-text",
                         ),
                         dbc.Button(
-                            "View Graph", color="primary", className="mt-auto", id="NF-button", n_clicks=0, name="NFLX.csv"
+                            "View Graph", color="primary", className="mt-auto", id="NF-button", n_clicks=0,
+                            name="NFLX.csv"
                         ),
                     ]
                 )
@@ -266,7 +284,7 @@ def update_output_div(input_value):
     Input('GOOG-button', 'n_clicks'),
     Input('NF-button', 'n_clicks')
 )
-def update_output(btn1,btn2,btn3,btn4,btn5):
+def update_output(btn1, btn2, btn3, btn4, btn5):
     changed_id = [p['prop_id'] for p in callback_context.triggered][0]
     if 'AM-button' in changed_id:
         msg = 'AMZN.csv'
@@ -293,9 +311,9 @@ def update_output(btn1,btn2,btn3,btn4,btn5):
 @app.callback(
     Output('dd-output-container', 'children'),
     Input('demo-dropdown', 'value'),
-    Input('date','value')
+    Input('date', 'value')
 )
-def update_output(value,date):
+def update_output(value, date):
     # df = pd.read_csv(value)
     df = pd.read_csv(value)
     if date == 'default':

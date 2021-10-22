@@ -396,29 +396,36 @@ app.layout = html.Div([
     html.Footer(
         children=[
             html.Br(),
-            html.Br(),
-            html.A(
-                'GitHub Repository',
-                href="https://github.com/rishabhrao12/crypto-stock-analysis",
-                className="lead",
-                style={
-                    'margin-left': '50px'
-                }
-            ),
-            html.P(
-                'Developed in Python using Dash, Plotly and Scikit-Learn',
-                className='lead',
-                style={
-                    'margin-left': '50px'
-                }
-            ),
-            html.P(
-                'Developed in Python using Dash, Plotly and Scikit-Learn',
-                className='lead',
-                style={
-                    'margin-left': '50px'
-                }
-            )
+            html.Center(children=[
+                html.A(
+                    'GitHub Repository',
+                    href="https://github.com/rishabhrao12/crypto-stock-analysis",
+                    className="lead",
+                    style={
+                        'margin-left': '50px'
+                    }
+                ),
+                html.Br(),
+                html.Br(),
+                html.P(
+                    'The goal of xyz is to create a interactive dashboard for analyzing stocks of the top FAANG '
+                    'companies and comparing them to one another, it was also built to predict the future prices of '
+                    'the stock and how the price would change throughout the course of the day',
+                    className='lead',
+                    style={
+                        'margin-left': '50px',
+                        'text-align': 'center'
+                    }
+                ),
+                html.Br(),
+                html.Br(),
+                html.P(
+                    'Developed in Python using Dash, Plotly and Scikit-Learn',
+                    className='lead',
+                    style={
+                        'margin-left': '50px'
+                    }
+                )])
         ],
         style={
             'height': '250px',

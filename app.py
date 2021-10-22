@@ -132,11 +132,12 @@ app.layout = html.Div([
     html.Div(children=[
         html.Div(
             [
-                dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
+                # dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
 
             ]
         ),
-        'Predicting Close Value ',
+        html.Br(),
+        'PREDICTING CLOSE VALUE ',
     ],
         style={
             'textAlign': 'center',
@@ -150,6 +151,7 @@ app.layout = html.Div([
 
         }),
     html.Div(style={'background-color': '#EAECF0'}, children=[
+        html.Br(),
         html.Span(
             children='Input Open Price ($): ',
             style={
@@ -196,9 +198,11 @@ app.layout = html.Div([
                 'margin-left': '618px',
             },
         ),
+        html.Br(),
+        html.Br(),
         html.Div(
             [
-                dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
+                # dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
 
             ]
         )
@@ -305,11 +309,12 @@ app.layout = html.Div([
     html.Div(children=[
         html.Div(
             [
-                dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
+                # dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
 
             ]
         ),
-        'Comparing Stocks',
+        html.Br(),
+        'COMPARING STOCKS',
     ],
         style={
             'textAlign': 'center',
@@ -323,6 +328,8 @@ app.layout = html.Div([
 
         }),
     html.Div(children=[
+        html.Br(),
+        html.Br(),
         html.Div(
             dcc.Dropdown(
                 id='company1comp',
@@ -368,7 +375,7 @@ app.layout = html.Div([
 
         html.Div(
             [
-                dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
+                # dbc.Progress(value=100, color="black", className="mb-3", style={"width": "1448px", 'height': '5px'}),
 
             ]
         )
@@ -387,6 +394,32 @@ app.layout = html.Div([
         )
     ),
     html.Footer(
+        children=[
+            html.Br(),
+            html.Br(),
+            html.A(
+                'GitHub Repository',
+                href="https://github.com/rishabhrao12/crypto-stock-analysis",
+                className="lead",
+                style={
+                    'margin-left': '50px'
+                }
+            ),
+            html.P(
+                'Developed in Python using Dash, Plotly and Scikit-Learn',
+                className='lead',
+                style={
+                    'margin-left': '50px'
+                }
+            ),
+            html.P(
+                'Developed in Python using Dash, Plotly and Scikit-Learn',
+                className='lead',
+                style={
+                    'margin-left': '50px'
+                }
+            )
+        ],
         style={
             'height': '250px',
             'background-color': '#EAECF0'

@@ -67,12 +67,12 @@ app.layout = html.Div([
     dcc.Dropdown(
         id='date',
         options=[
-            {'label': '6mo', 'value': '25'},
-            {'label': '1y', 'value': '50'},
-            {'label': '2y', 'value': '300'},
+            {'label': '1mo', 'value': '25'},
+            {'label': '6mo', 'value': '50'},
+            {'label': '1y', 'value': '300'},
             {'label': '5y', 'value': 'default'}
         ],
-        value='NFLX.csv'
+        value='default'
     ),
     html.Div(
         id='dd-output-container',
@@ -289,14 +289,20 @@ def update_output(btn1,btn2,btn3,btn4,btn5):
     ))
 
 
-# Dropdown
+# Dropdown companies
 @app.callback(
     Output('dd-output-container', 'children'),
-    Input('demo-dropdown', 'value')
+    Input('demo-dropdown', 'value'),
+    Input('date','value')
 )
-def update_output(value):
+def update_output(value,date):
     # df = pd.read_csv(value)
     df = pd.read_csv(value)
+    if date == 'default':
+        df = df[:]
+    else:
+        start_date = len(df) - int(date)
+        df = df[start_date:]
     candlestick = go.Figure(data=[go.Candlestick(x=df['Date'],
                                                  open=df['Open'],
                                                  high=df['High'],
@@ -309,9 +315,6 @@ def update_output(value):
         id='CANDLESTICK',
         figure=candlestick
     ))
-
-    # line_graph = px.scatter(x=df['Open'], y=df['Close'], labels={'x': 'Open', 'y': 'Close'})
-    # line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
 
 
 if __name__ == '__main__':

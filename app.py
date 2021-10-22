@@ -177,7 +177,7 @@ app.layout = html.Div([
         ),
         html.Div(
             [
-                dbc.Progress(value=90, color="black", className="mb-3", style={"width": "2000px"}),
+                dbc.Progress(value=99.16, color="black", className="mb-3", style={"width": "1248px"}),
 
             ]
         )
@@ -427,7 +427,8 @@ def update_output(co1, co2):
             showlegend=True
         )
     ])
-    figco.update_layout(title='Comparing Companies', title_x=0.5)
+    title_g = f'{comp1} vs {comp2}'
+    figco.update_layout(title=title_g, title_x=0.5)
     return html.Div(dcc.Graph(
         id='compare-graph',
         figure=figco

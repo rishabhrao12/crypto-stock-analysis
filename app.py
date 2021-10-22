@@ -397,6 +397,7 @@ def update_output(value, date):
         figure=candlestick
     ))
 
+
 # Changing compare
 @app.callback(
     Output(component_id='compare-container', component_property='children'),
@@ -431,6 +432,7 @@ def update_output(co1, co2):
         id='compare-graph',
         figure=figco
     ))
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)

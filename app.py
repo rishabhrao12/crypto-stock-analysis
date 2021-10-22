@@ -200,7 +200,7 @@ app.layout = html.Div([
                     [
                         html.H5("Amazon", className="card-title"),
                         html.P(
-                            "To check stocks from over 5 years and predict to make better investments  ",
+                            "Amazon.com, Inc. is an American multinational technology company which focuses on e-commerce, cloud computing, digital streaming.",
 
                             className="card-text",
                         ),
@@ -216,7 +216,7 @@ app.layout = html.Div([
                     [
                         html.H5("Apple", className="card-title"),
                         html.P(
-                            "To check stocks from over 5 years and predict to make better investments ",
+                            "Apple Inc. is an American multinational technology company that specializes in consumer electronics, computer software, and online services. ",
                             className="card-text",
                         ),
                         dbc.Button(
@@ -231,7 +231,7 @@ app.layout = html.Div([
                     [
                         html.H5("Facebook", className="card-title"),
                         html.P(
-                            "To check stocks from over 5 years and predict to make better investments ",
+                            "Facebook, Inc. is an American multinational technology company based in Menlo Park, California that offers online social networking services. ",
 
                             className="card-text",
                         ),
@@ -248,7 +248,7 @@ app.layout = html.Div([
 
                         html.H5("Google", className="card-title"),
                         html.P(
-                            "To check stocks from over 5 years and predict to make better investments ",
+                            "Google LLC is an American multinational technology company that specializes in Internet-related services and products",
 
                             className="card-text",
                         ),
@@ -265,7 +265,7 @@ app.layout = html.Div([
 
                         html.H5("Netflix", className="card-title"),
                         html.P(
-                            "To check stocks from over 5 years and predict to make better investments",
+                            "Netflix, Inc. is an American pay television over-the-top media service and original programming production company.",
 
                             className="card-text",
                         ),

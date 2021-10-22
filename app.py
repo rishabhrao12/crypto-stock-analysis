@@ -34,6 +34,14 @@ candlestick.update_layout(title='CANDLESTICK GRAPH', title_x=0.5)
 line_graph = px.scatter(x=df['Open'], y=df['Close'], labels={'x': 'Open', 'y': 'Close'})
 line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
 
+# Compare graph
+df_comp1 = pd.read_csv('NFLX.csv')
+df_comp2 = pd.read_csv('FB.csv')
+
+figco = px.line(df_comp1, x=df_comp1['Date'], y=df_comp1['Close'])
+figco.add_scatter(x=df_comp2['Date'], y=df_comp2['Close'], mode='lines')
+figco.update_layout(title="Comparing Company Stocks", title_x=0.5)
+
 '''arima_model = pickle.load(open("ARIMA_Model.pkl", 'rb'))
 fig = arima_model.plot_predict(1,60)'''
 
@@ -250,7 +258,50 @@ app.layout = html.Div([
                 )
             ),
         ]
-    )
+    ),
+
+    html.Br(),
+    html.Br(),
+
+    html.Div([
+        dcc.Dropdown(
+            id='company1comp',
+            options=[
+                {'label': 'NETFLIX', 'value': 'NFLX.csv'},
+                {'label': 'AMAZON', 'value': 'AMZN.csv'},
+                {'label': 'APPLE', 'value': 'AAPL.csv'},
+                {'label': 'FACEBOOK', 'value': 'FB.csv'},
+                {'label': 'GOOGLE', 'value': 'GOOG-2.csv'}
+            ],
+            value='NFLX.csv',
+            style={
+                'width': '500px'
+            }
+        ),
+        dcc.Dropdown(
+            id='company2comp',
+            options=[
+                {'label': 'AMAZON', 'value': 'AMZN.csv'},
+                {'label': 'NETFLIX', 'value': 'NFLX.csv'},
+                {'label': 'APPLE', 'value': 'AAPL.csv'},
+                {'label': 'FACEBOOK', 'value': 'FB.csv'},
+                {'label': 'GOOGLE', 'value': 'GOOG-2.csv'}
+            ],
+            value='FB.csv',
+            style={
+                'width': '500px'
+            }
+        )
+    ]),
+    html.Div(
+        id='compare-container',
+        children=html.Div(
+            dcc.Graph(
+                id='compare-graph',
+                figure=figco,
+            ),
+        )
+    ),
 
 ])
 
@@ -300,7 +351,7 @@ def update_output(btn1, btn2, btn3, btn4, btn5):
     ))
 
 
-# Dropdown companies
+# Dropdown companies and date
 @app.callback(
     Output('dd-output-container', 'children'),
     Input('demo-dropdown', 'value'),

@@ -408,7 +408,7 @@ app.layout = html.Div([
                 html.Br(),
                 html.Br(),
                 html.P(
-                    'The goal of xyz is to create a interactive dashboard for analyzing stocks of the top FAANG '
+                    'The goal of Stock Analysis is to create a interactive dashboard for analyzing stocks of the top FAANG '
                     'companies and comparing them to one another, it was also built to predict the future prices of '
                     'the stock and how the price would change throughout the course of the day',
                     className='lead',

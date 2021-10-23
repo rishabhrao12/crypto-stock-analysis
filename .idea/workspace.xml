@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="final project" />
+    <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="final project">
+      <change afterPath="$PROJECT_DIR$/stock-analysis-iot.mov" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +58,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -132,6 +137,7 @@
       <workItem from="1634919946188" duration="8403000" />
       <workItem from="1634963390050" duration="1211000" />
       <workItem from="1634967164711" duration="141000" />
+      <workItem from="1634999199090" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="updated files">
       <created>1634653377045</created>

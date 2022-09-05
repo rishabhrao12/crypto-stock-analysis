@@ -18,51 +18,7 @@ colors = {
     'text': 'black'
 }
 
-filen_name = {'NFLX.csv': 'Netflix', 'AMZN.csv': "Amazon", 'FB.csv': 'Facebook', 'AAPL.csv': 'Apple',
-              'GOOG.csv': 'Google'}
 
-filename = "linear_regression_aapl.pickle"
-
-model = pickle.load(open(filename, 'rb'))
-
-df = pd.read_csv('NFLX.csv')
-candlestick = go.Figure(data=[go.Candlestick(x=df['Date'],
-                                             open=df['Open'],
-                                             high=df['High'],
-                                             low=df['Low'],
-                                             close=df['Close'])])
-
-candlestick.update_layout(title='CANDLESTICK GRAPH', title_x=0.5)
-
-line_graph = px.scatter(x=df['Open'], y=df['Close'], labels={'x': 'Open', 'y': 'Close'})
-line_graph.update_layout(title='OPEN v CLOSE', title_x=0.5)
-
-# Compare graph
-df_comp1 = pd.read_csv('NFLX.csv')
-df_comp2 = pd.read_csv('FB.csv')
-
-figco = go.Figure([
-    go.Scatter(
-        name='Netflix',
-        x=df_comp1['Date'],
-        y=df_comp1['Close'],
-        mode='lines',
-        marker=dict(color='red', size=2),
-        showlegend=True
-    ),
-    go.Scatter(
-        name='Facebook',
-        x=df_comp2['Date'],
-        y=df_comp2['Close'],
-        mode='lines',
-        marker=dict(color='blue', size=2),
-        showlegend=True
-    )
-])
-figco.update_layout(title='Comparing Companies', title_x=0.5)
-
-'''arima_model = pickle.load(open("ARIMA_Model.pkl", 'rb'))
-fig = arima_model.plot_predict(1,60)'''
 
 app.layout = html.Div([
 

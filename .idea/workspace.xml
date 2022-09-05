@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbb893f6-9b63-4d39-beca-49e8651749be" name="Changes" comment="final project">
-      <change afterPath="$PROJECT_DIR$/stock-analysis-iot.mov" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +139,10 @@
       <workItem from="1634963390050" duration="1211000" />
       <workItem from="1634967164711" duration="141000" />
       <workItem from="1634999199090" duration="20000" />
+      <workItem from="1635427579918" duration="783000" />
+      <workItem from="1635526246363" duration="7000" />
+      <workItem from="1635527627439" duration="652000" />
+      <workItem from="1635576417761" duration="634000" />
     </task>
     <task id="LOCAL-00001" summary="updated files">
       <created>1634653377045</created>
